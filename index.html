@@ -1,0 +1,2091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Radio Button UI Designs</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      background: #1f1f21;
+      font-family: "Montserrat", Arial, sans-serif;
+      padding-top: 200px;
+      padding-bottom: 300px;
+    }
+
+    .page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 200px;
+    }
+
+    /* -------------------- */
+    /* 1 */
+    /* -------------------- */
+    .top-radio-wrapper {
+      width: 630px;
+      background: #e8e8e8;
+      border-radius: 18px;
+      padding: 6px;
+      position: relative;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.45);
+    }
+
+    .top-radio-wrapper input[type="radio"] {
+      display: none;
+    }
+
+    .top-radio-group {
+      display: flex;
+      align-items: center;
+      position: relative;
+      height: 44px;
+    }
+
+    .top-slider {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: calc((100% - 20px) / 3);
+      height: 44px;
+      background: linear-gradient(to bottom, #2a003d, #1f002d);
+      border-radius: 14px;
+      box-shadow: 0 0 14px rgba(108, 44, 168, 0.7);
+      transition: transform 0.35s ease;
+      z-index: 1;
+    }
+
+    .top-option {
+      flex: 1;
+      height: 44px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: 600;
+      color: #8f8f8f;
+      position: relative;
+      z-index: 2;
+      border-radius: 14px;
+    }
+
+    .top-divider {
+      width: 5px;
+      height: 28px;
+      background: #c9c9c9;
+      border-radius: 10px;
+      position: relative;
+      z-index: 2;
+    }
+
+    #top-option1:checked ~ .top-radio-group label[for="top-option1"],
+    #top-option2:checked ~ .top-radio-group label[for="top-option2"],
+    #top-option3:checked ~ .top-radio-group label[for="top-option3"] {
+      color: #7d63d8;
+    }
+
+    #top-option1:checked ~ .top-radio-group .top-slider {
+      transform: translateX(0);
+    }
+
+    #top-option2:checked ~ .top-radio-group .top-slider {
+      transform: translateX(calc(100% + 10px));
+    }
+
+    #top-option3:checked ~ .top-radio-group .top-slider {
+      transform: translateX(calc(200% + 20px));
+    }
+
+    /* -------------------- */
+    /* 2 */
+    /* -------------------- */
+    .bottom-radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      align-items: flex-start;
+    }
+
+    .bottom-radio-group input[type="radio"] {
+      display: none;
+    }
+
+    .bottom-option {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 205px;
+      height: 66px;
+      padding: 0 26px;
+      border-radius: 999px;
+      background: #e8e8e8;
+      color: #8d8d8d;
+      font-size: 22px;
+      font-weight: 300;
+      letter-spacing: 1px;
+      cursor: pointer;
+      box-shadow: 0 14px 24px rgba(0, 0, 0, 0.5);
+      transition: all 0.35s ease;
+      box-sizing: border-box;
+    }
+
+
+    /* 选中后按钮变长 + 变蓝 */
+    #bottom-option1:checked + label,
+    #bottom-option2:checked + label,
+    #bottom-option3:checked + label {
+      width: 360px;
+      background: #5883f0;
+      color: #f3f5ff;
+    }
+
+    /* 没选中时保持灰白 */
+    #bottom-option1:not(:checked) + label,
+    #bottom-option2:not(:checked) + label,
+    #bottom-option3:not(:checked) + label {
+      background: #e8e8e8;
+      color: #8d8d8d;
+    }
+    
+    /* 3 */
+.third-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+.third-radio-group input[type="radio"] {
+  display: none;
+}
+
+.third-option {
+  width: 250px;
+  height: 66px;
+  background: #e8e8e8;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  box-sizing: border-box;
+  cursor: pointer;
+  box-shadow: 0 14px 24px rgba(0, 0, 0, 0.5);
+  color: #7d7d7d;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.dot {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: transparent;
+  margin-right: 18px;
+  flex-shrink: 0;
+}
+
+#third-option1:checked + label .dot,
+#third-option2:checked + label .dot,
+#third-option3:checked + label .dot {
+  background: #1d2b5f;
+}
+
+/*4 */
+.dropdown-box {
+  width: 245px;
+  background: #343434;
+  border-radius: 16px;
+  box-shadow: 0 14px 24px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.dropdown-selected {
+  height: 54px;
+  line-height: 54px;
+  padding: 0 22px;
+  box-sizing: border-box;
+  color: #d8d8d8;
+  font-size: 22px;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0;
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.35s ease;
+}
+
+.dropdown-menu.show {
+  max-height: 220px;
+  padding: 8px 0 12px 0;
+  opacity: 1;
+}
+
+.dropdown-item {
+  padding: 16px 22px;
+  color: #8f8f8f;
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  color: #f0f0f0;
+}
+
+/* 5*/
+.simple-tab-group {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 530px;
+  height: 60px;
+  background: #e8e8e8;
+  border-radius: 8px;
+  box-shadow: 0 14px 24px rgba(0, 0, 0, 0.5);
+}
+
+.simple-tab-group input[type="radio"] {
+  display: none;
+}
+
+.simple-tab {
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: 700;
+  color: #7f7f7f;
+  transition: color 0.25s ease;
+}
+
+/* 选中后文字变色 */
+#tab1:checked + label,
+#tab2:checked + label,
+#tab3:checked + label {
+  color: #a15e5e;
+}
+
+/* 6 */
+.vertical-slider-box input[type="radio"] {
+  display: none;
+}
+
+.vertical-panel {
+  width: 170px;
+  height: 185px;
+  background: #cfcfcf;
+  border-radius: 14px;
+  position: relative;
+  box-shadow: 0 14px 24px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 18px 0;
+  box-sizing: border-box;
+}
+
+.vertical-item {
+  width: 100%;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: #7f7f7f;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  transition: color 0.25s ease;
+}
+
+.vertical-highlight {
+  position: absolute;
+  left: -20px;
+  top: 13px;
+  width: 210px;
+  height: 56px;
+  border-radius: 18px;
+  background: linear-gradient(to right, #5a5a5a, #8c8c8c, #5a5a5a);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-sizing: border-box;
+  z-index: 1;
+  transition: transform 0.35s ease;
+}
+
+/* 文字选中变浅 */
+#v-option1:checked ~ .vertical-panel label[for="v-option1"],
+#v-option2:checked ~ .vertical-panel label[for="v-option2"],
+#v-option3:checked ~ .vertical-panel label[for="v-option3"] {
+  color: #f0f0f0;
+}
+
+/* 滑块移动 */
+#v-option1:checked ~ .vertical-panel .vertical-highlight {
+  transform: translateY(0);
+}
+
+#v-option2:checked ~ .vertical-panel .vertical-highlight {
+  transform: translateY(52px);
+}
+
+#v-option3:checked ~ .vertical-panel .vertical-highlight {
+  transform: translateY(104px);
+}
+
+/* 7 */
+/* 新的竖向 blob UI */
+.blob-menu input[type="radio"] {
+  display: none;
+}
+
+.blob-card {
+  width: 178px;
+  height: 222px;
+  background: #d3d3d3;
+  border-radius: 18px;
+  position: relative;
+  box-shadow: 0 16px 26px rgba(0, 0, 0, 0.5);
+}
+
+.blob-option {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: #7d7d7d;
+  cursor: pointer;
+  z-index: 2;
+  transition: color 0.25s ease;
+}
+
+.blob-option1 {
+  top: 34px;
+}
+
+.blob-option2 {
+  top: 97px;
+}
+
+.blob-option3 {
+  top: 160px;
+}
+
+/* 中间白色不规则块 */
+.blob-shape {
+  position: absolute;
+  left: 18px;
+  top: 85px;
+  width: 142px;
+  height: 52px;
+  background: #f4f4f4;
+  border-radius: 28px 34px 24px 30px / 20px 26px 24px 22px;
+  z-index: 1;
+  transition: transform 0.35s ease;
+}
+
+/* 选中的文字变黑 */
+#blob1:checked ~ .blob-card .blob-option1,
+#blob2:checked ~ .blob-card .blob-option2,
+#blob3:checked ~ .blob-card .blob-option3 {
+  color: #202020;
+}
+
+/* 白色块移动 */
+#blob1:checked ~ .blob-card .blob-shape {
+  transform: translateY(-63px);
+}
+
+#blob2:checked ~ .blob-card .blob-shape {
+  transform: translateY(0);
+}
+
+#blob3:checked ~ .blob-card .blob-shape {
+  transform: translateY(63px);
+}
+
+/* 8 */
+/* 三角形选中菜单 */
+.triangle-menu input[type="radio"] {
+  display: none;
+}
+
+.triangle-card {
+  width: 165px;
+  height: 166px;
+  background: #d3d3d3;
+  border-radius: 16px;
+  position: relative;
+  box-shadow: 0 16px 26px rgba(0, 0, 0, 0.5);
+}
+
+.triangle-item {
+  position: absolute;
+  left: 20px;
+  width: calc(100% - 40px);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 21px;
+  font-weight: 600;
+  color: #7b7b7b;
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+.triangle-item1 {
+  top: 18px;
+}
+
+.triangle-item2 {
+  top: 68px;
+}
+
+.triangle-item3 {
+  top: 118px;
+}
+
+.triangle-icon {
+  width: 0;
+  height: 0;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 14px solid transparent;
+  transition: border-left-color 0.25s ease;
+}
+
+/* 选中时三角形出现 */
+#tri-option1:checked ~ .triangle-card .triangle-item1 .triangle-icon,
+#tri-option2:checked ~ .triangle-card .triangle-item2 .triangle-icon,
+#tri-option3:checked ~ .triangle-card .triangle-item3 .triangle-icon {
+  border-left-color: #8d6565;
+}
+
+/* 选中时文字可稍微深一点*/
+#tri-option1:checked ~ .triangle-card .triangle-item1,
+#tri-option2:checked ~ .triangle-card .triangle-item2,
+#tri-option3:checked ~ .triangle-card .triangle-item3 {
+  color: #6f6f6f;
+}
+
+/* 9 */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1f1f21;
+  font-family: Arial, sans-serif;
+}
+
+.loop-menu {
+  position: relative;
+  width: 800px;
+  height: 450px;
+}
+
+.loop-menu input[type="radio"] {
+  display: none;
+}
+
+.loop-bg {
+  width: 100%;
+  height: 100%;
+  background-image: url("loops.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+}
+
+.loop-option {
+  position: absolute;
+  color: rgba(220, 220, 220, 0.65);
+  font-size: 22px;
+  cursor: pointer;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.option1 {
+  left: 230px;
+  top: 265px;
+  transform: rotate(-24deg);
+}
+
+.option2 {
+  left: 340px;
+  top: 95px;
+  transform: rotate(18deg);
+}
+
+.option3 {
+  left: 570px;
+  top: 235px;
+  transform: rotate(-18deg);
+}
+
+#loop1:checked ~ .loop-bg .option1,
+#loop2:checked ~ .loop-bg .option2,
+#loop3:checked ~ .loop-bg .option3 {
+  color: #eefcff;
+  text-shadow: 0 0 6px rgba(220, 245, 255, 0.9),
+               0 0 12px rgba(180, 235, 255, 0.7);
+}
+
+/* 10 */
+.flash-ui input[type="radio"] {
+  display: none;
+}
+
+.flash-ui {
+  width: 820px;
+  height: 360px;
+  position: relative;
+}
+
+/* 手电筒角度*/
+.flash-ui {
+  --torch-angle: -130deg;
+  --move-distance: 172px;
+}
+
+.flash-scene {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.flashlight {
+  position: absolute;
+  left: 365px;
+  top: 70px;
+  width: 90px;
+  z-index: 4;
+  transform-origin: center center;
+  transition: transform 0.35s ease;
+}
+
+.light-beam {
+  position: absolute;
+  left: 345px;
+  top: 130px;
+  width: 130px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.9);
+  filter: blur(10px);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  z-index: 1;
+  transition: transform 0.35s ease;
+}
+
+.flash-bar {
+  position: absolute;
+  left: 140px;
+  bottom: 40px;
+  width: 540px;
+  height: 38px;
+  background: #050505;
+  border-radius: 999px;
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  box-sizing: border-box;
+  z-index: 3;
+}
+
+.flash-item {
+  width: 33.33%;
+  text-align: center;
+  font-size: 18px;
+  color: #7a7a7a;
+  cursor: pointer;
+  position: relative;
+  z-index: 4;
+  transition: color 0.25s ease;
+}
+
+.flash-slider {
+  position: absolute;
+  left: 187px;
+  top: 3px;
+  width: 167px;
+  height: 32px;
+  background: #f2f2f2;
+  border-radius: 999px;
+  box-shadow: 0 0 8px rgba(255, 235, 180, 0.55);
+  z-index: 2;
+  transition: transform 0.35s ease;
+}
+
+#flash-option1:checked ~ .flash-scene .flash-bar label[for="flash-option1"],
+#flash-option2:checked ~ .flash-scene .flash-bar label[for="flash-option2"],
+#flash-option3:checked ~ .flash-scene .flash-bar label[for="flash-option3"] {
+  color: #6f6f6f;
+}
+
+/* 手电筒：平移 + 可自由改角度 */
+#flash-option1:checked ~ .flash-scene .flashlight {
+  transform: translateX(calc(-1 * var(--move-distance))) rotate(var(--torch-angle));
+}
+
+#flash-option2:checked ~ .flash-scene .flashlight {
+  transform: translateX(0) rotate(var(--torch-angle));
+}
+
+#flash-option3:checked ~ .flash-scene .flashlight {
+  transform: translateX(var(--move-distance)) rotate(var(--torch-angle));
+}
+
+/* 光束：只平移 */
+#flash-option1:checked ~ .flash-scene .light-beam {
+  transform: translateX(calc(-1 * var(--move-distance)));
+}
+
+#flash-option2:checked ~ .flash-scene .light-beam {
+  transform: translateX(0);
+}
+
+#flash-option3:checked ~ .flash-scene .light-beam {
+  transform: translateX(var(--move-distance));
+}
+
+/* 白色滑块：只平移 */
+#flash-option1:checked ~ .flash-scene .flash-slider {
+  transform: translateX(calc(-1 * var(--move-distance)));
+}
+
+#flash-option2:checked ~ .flash-scene .flash-slider {
+  transform: translateX(0);
+}
+
+#flash-option3:checked ~ .flash-scene .flash-slider {
+  transform: translateX(var(--move-distance));
+}
+
+/* 11 */
+.drag-select-ui {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.drag-options {
+  position: relative;
+  width: 618px;
+  height: 170px;
+}
+
+.drag-option {
+  position: absolute;
+  top: 0;
+  width: 206px;
+  height: 56px;
+  background: #dddddd;
+  color: #7a7a7a;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.drag-option:nth-child(1) {
+  left: 0;
+  border-radius: 8px 0 0 8px;
+}
+
+.drag-option:nth-child(2) {
+  left: 206px;
+}
+
+.drag-option:nth-child(3) {
+  left: 412px;
+  border-radius: 0 8px 8px 0;
+}
+
+.drag-option.active {
+  color: #5f5f5f;
+}
+
+.sticky-note {
+  position: absolute;
+  top: -6px;
+  left: 250px;
+  width: 124px;
+  height: 124px;
+  background: transparent;
+  border: 14px solid #88c9c8;
+  border-radius: 4px;
+  cursor: grab;
+  user-select: none;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 12px;
+  box-sizing: border-box;
+  z-index: 3;
+  transition: left 0.2s ease;
+}
+
+.sticky-note:active {
+  cursor: grabbing;
+}
+
+.sticky-move {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.sticky-cover {
+  position: absolute;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  height: 60px;
+  background: #88c9c8;
+  z-index: -1;
+}
+
+/* 12 */
+.dark-tab-ui input[type="radio"] {
+  display: none;
+}
+
+.dark-tab-ui {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dark-tab-bar {
+  position: relative;
+  width: 490px;
+  height: 54px;
+  background: #2d2d2d;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  box-sizing: border-box;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+.dark-tab-slider {
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  width: 158px;
+  height: 46px;
+  background: #202020;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+.dark-tab-option {
+  width: 158px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #b9d9a8;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  transition: color 0.25s ease;
+}
+
+/* 选中的文字颜色 */
+#dark-tab1:checked ~ .dark-tab-bar label[for="dark-tab1"],
+#dark-tab2:checked ~ .dark-tab-bar label[for="dark-tab2"],
+#dark-tab3:checked ~ .dark-tab-bar label[for="dark-tab3"] {
+  color: #4ee0b2;
+}
+
+/* 黑色块移动 */
+#dark-tab1:checked ~ .dark-tab-bar .dark-tab-slider {
+  transform: translateX(0);
+}
+
+#dark-tab2:checked ~ .dark-tab-bar .dark-tab-slider {
+  transform: translateX(158px);
+}
+
+#dark-tab3:checked ~ .dark-tab-bar .dark-tab-slider {
+  transform: translateX(316px);
+}
+
+/* 13 */
+.piggy-ui {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.piggy-box {
+  width: 260px;
+  height: 240px;
+  background: #d9d9d9;
+  border-radius: 6px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 16px;
+  box-sizing: border-box;
+}
+
+.piggy-img {
+  width: 150px;
+  position: relative;
+  z-index: 2;
+}
+
+/* 飞下来的硬币 */
+.falling-coin {
+  width: 46px;
+  height: 46px;
+  background: #e0b52b;
+  border-radius: 50%;
+  position: absolute;
+  left: 107px;
+  top: 12px;
+  opacity: 0;
+  z-index: 3;
+}
+
+/* 开始动画时加这个类 */
+.falling-coin.animate {
+  animation: coinDrop 0.7s ease forwards;
+}
+
+@keyframes coinDrop {
+  0% {
+    transform: translateY(-20px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(70px);
+    opacity: 0;
+  }
+}
+
+.coin-row {
+  position: absolute;
+  bottom: 34px;
+  display: flex;
+  gap: 18px;
+}
+
+.coin-btn {
+  width: 46px;
+  height: 46px;
+  background: #e0b52b;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(120, 110, 70, 0.45);
+  font-size: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* 被点击后先隐藏 */
+.coin-btn.hide {
+  opacity: 0;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1f1f21;
+}
+
+/* 14 */
+.toilet-ui {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.toilet-roll {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  cursor: pointer;
+  display: block;
+}
+
+.toilet-roll.selected {
+  height: 220px;
+}
+
+/* 15 */
+.player-ui {
+  position: relative;
+  width: 540px;
+  margin: 30px auto 0;
+}
+
+.player-handle {
+  width: 360px;
+  height: 70px;
+  border: 10px solid #e5e5e5;
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.player-box {
+  width: 100%;
+  height: 255px;
+  background: #bdbab1;
+  border-radius: 22px;
+  margin-top: -6px;
+  padding: 35px 42px;
+  box-sizing: border-box;
+}
+
+.player-top-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 330px;
+  margin: 0 auto 50px auto;
+}
+
+.player-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 55px;
+}
+
+.player-btn {
+  border: none;
+  background: #5e5e5e;
+  color: #9b9b9b;
+  font-size: 24px;
+  font-weight: 700;
+  border-radius: 8px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.08s ease;
+}
+
+/* 1 2 3 按钮 */
+.mode-btn {
+  width: 64px;
+  height: 48px;
+}
+
+/* 按下状态 */
+.mode-btn.active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background: #545454;
+}
+
+/* 屏幕 */
+.player-screen {
+  width: 225px;
+  height: 68px;
+  margin-left: 110px;
+  background: #8d8d8d;
+  border-radius: 14px;
+  box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.18);
+}
+
+/* 打勾按钮 */
+.check-btn {
+  width: 58px;
+  height: 52px;
+  font-size: 30px;
+  line-height: 1;
+}
+
+/* 打勾按钮临时按下 */
+.check-btn.pressed {
+  transform: translateY(4px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background: #545454;
+}
+
+/* 16 */
+.abc-radio-ui input[type="radio"] {
+  display: none;
+}
+
+.abc-radio-group {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+}
+
+.abc-radio-btn {
+  width: 112px;
+  height: 112px;
+  border-radius: 18px;
+  background: linear-gradient(to bottom, #141519, #0c0d10);
+  border: 1px solid #23262c;
+  box-shadow:
+    0 10px 18px rgba(0, 0, 0, 0.45),
+    inset 0 2px 0 rgba(255, 255, 255, 0.05),
+    inset 0 -3px 8px rgba(0, 0, 0, 0.55);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* 里面那层细边框，让它更立体 */
+.abc-radio-btn::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border-radius: 14px;
+  border: 1px solid #5a5d63;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.abc-top-line {
+  position: absolute;
+  top: 15px;
+  width: 42px;
+  height: 4px;
+  border-radius: 999px;
+  background: #b21f1f;
+  box-shadow: 0 0 4px rgba(178, 31, 31, 0.35);
+}
+
+.abc-letter {
+  font-size: 58px;
+  font-family: Arial, sans-serif;
+  color: #2f3238;
+  text-shadow:
+    0 1px 0 #8a8d93,
+    0 -1px 0 #000,
+    1px 0 0 #000,
+    -1px 0 0 #000;
+}
+
+/* 选中哪个，哪个上面的线变绿 */
+#abc-a:checked ~ .abc-radio-group label[for="abc-a"] .abc-top-line,
+#abc-b:checked ~ .abc-radio-group label[for="abc-b"] .abc-top-line,
+#abc-c:checked ~ .abc-radio-group label[for="abc-c"] .abc-top-line {
+  background: #47b52c;
+  box-shadow: 0 0 6px rgba(71, 181, 44, 0.55);
+}
+
+/* 选中时按钮也微微更“按下去”一点 */
+#abc-a:checked ~ .abc-radio-group label[for="abc-a"],
+#abc-b:checked ~ .abc-radio-group label[for="abc-b"],
+#abc-c:checked ~ .abc-radio-group label[for="abc-c"] {
+  transform: translateY(2px);
+  box-shadow:
+    0 6px 12px rgba(0, 0, 0, 0.45),
+    inset 0 2px 0 rgba(255, 255, 255, 0.04),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* 17 */
+.ipod-ui input[type="radio"] {
+  display: none;
+}
+
+.ipod-ui {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ipod-body {
+  width: 360px;
+  height: 700px;
+  background: #d9d9d9;
+  border-radius: 48px;
+  position: relative;
+  padding-top: 62px;
+  box-sizing: border-box;
+}
+
+.ipod-screen {
+  width: 250px;
+  height: 230px;
+  background: #c8c8c8;
+  border-radius: 28px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.screen-text {
+  position: absolute;
+  font-size: 44px;
+  font-weight: 700;
+  color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  display: none;
+}
+
+/* 根据 radio 显示文字 */
+#ipod-1:checked ~ .ipod-body .text-1 {
+  display: block;
+}
+
+#ipod-2:checked ~ .ipod-body .text-2 {
+  display: block;
+}
+
+#ipod-3:checked ~ .ipod-body .text-3 {
+  display: block;
+}
+
+.ipod-wheel {
+  width: 285px;
+  height: 285px;
+  background: #efefef;
+  border-radius: 50%;
+  margin: 68px auto 0;
+  position: relative;
+}
+
+.wheel-center {
+  width: 72px;
+  height: 72px;
+  background: #c8c8c8;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 左右按钮 */
+.arrow {
+  position: absolute;
+  width: 54px;
+  height: 60px;
+  cursor: pointer;
+  display: none;
+}
+
+.left {
+  left: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.right {
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* 画三角形 */
+.left::before,
+.right::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.left::before {
+  width: 0;
+  height: 0;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  border-right: 52px solid #c8c8c8;
+  left: 0;
+}
+
+.right::before {
+  width: 0;
+  height: 0;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  border-left: 52px solid #c8c8c8;
+  right: 0;
+}
+
+/* 当前状态显示对应的左右按钮 */
+#ipod-1:checked ~ .ipod-body .left-for-1,
+#ipod-1:checked ~ .ipod-body .right-for-1 {
+  display: block;
+}
+
+#ipod-2:checked ~ .ipod-body .left-for-2,
+#ipod-2:checked ~ .ipod-body .right-for-2 {
+  display: block;
+}
+
+#ipod-3:checked ~ .ipod-body .left-for-3,
+#ipod-3:checked ~ .ipod-body .right-for-3 {
+  display: block;
+}
+
+/* 18 */
+.menu-remote-ui input[type="radio"] {
+  display: none;
+}
+
+.menu-remote-ui {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-remote-body {
+  width: 355px;
+  height: 630px;
+  background: #7a7a7a;
+  border-radius: 28px;
+  padding-top: 38px;
+  box-sizing: border-box;
+}
+
+.menu-remote-screen {
+  width: 320px;
+  height: 285px;
+  background: #1d1d1d;
+  border-radius: 14px;
+  margin: 0 auto;
+  position: relative;
+  padding-top: 30px;
+  box-sizing: border-box;
+}
+
+.menu-remote-line {
+  width: 255px;
+  margin: 0 auto;
+  color: #f4f4f4;
+  font-size: 27px;
+  font-family: Arial, sans-serif;
+  line-height: 1;
+  padding: 12px 10px 16px 10px;
+  box-sizing: border-box;
+  border-bottom: 3px solid #8a8a8a;
+  position: relative;
+  z-index: 2;
+}
+
+.menu-remote-highlight {
+  position: absolute;
+  left: 18px;
+  width: 284px;
+  height: 50px;
+  background: #3d3d3d;
+  border-radius: 14px;
+  display: none;
+  z-index: 1;
+}
+
+.menu-remote-highlight-1 {
+  top: 27px;
+}
+
+.menu-remote-highlight-2 {
+  top: 88px;
+}
+
+.menu-remote-highlight-3 {
+  top: 149px;
+}
+
+#menu-remote-1:checked ~ .menu-remote-body .menu-remote-highlight-1 {
+  display: block;
+}
+
+#menu-remote-2:checked ~ .menu-remote-body .menu-remote-highlight-2 {
+  display: block;
+}
+
+#menu-remote-3:checked ~ .menu-remote-body .menu-remote-highlight-3 {
+  display: block;
+}
+
+.menu-remote-controls {
+  width: 270px;
+  margin: 65px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-remote-pad {
+  width: 145px;
+  height: 145px;
+  position: relative;
+}
+
+.menu-remote-pad-btn {
+  width: 56px;
+  height: 56px;
+  background: #d9d9d9;
+  border: 2px solid #6b6b6b;
+  border-radius: 10px;
+  color: #8a8a8a;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.menu-remote-up {
+  left: 44px;
+  top: 0;
+  display: none;
+  cursor: pointer;
+}
+
+.menu-remote-down {
+  left: 44px;
+  bottom: 0;
+  display: none;
+  cursor: pointer;
+}
+
+.menu-remote-left {
+  left: 0;
+  top: 44px;
+}
+
+.menu-remote-right {
+  right: 0;
+  top: 44px;
+}
+
+.menu-remote-center {
+  left: 44px;
+  top: 44px;
+  background: transparent;
+  border: none;
+}
+
+#menu-remote-1:checked ~ .menu-remote-body .menu-remote-up-for-1,
+#menu-remote-1:checked ~ .menu-remote-body .menu-remote-down-for-1 {
+  display: flex;
+}
+
+#menu-remote-2:checked ~ .menu-remote-body .menu-remote-up-for-2,
+#menu-remote-2:checked ~ .menu-remote-body .menu-remote-down-for-2 {
+  display: flex;
+}
+
+#menu-remote-3:checked ~ .menu-remote-body .menu-remote-up-for-3,
+#menu-remote-3:checked ~ .menu-remote-body .menu-remote-down-for-3 {
+  display: flex;
+}
+
+.menu-remote-enter-btn {
+  width: 80px;
+  height: 40px;
+  background: #d9d9d9;
+  border: 2px solid #6b6b6b;
+  border-radius: 10px;
+  color: #8a8a8a;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+
+/* 19 */
+.step-radio-ui input[type="radio"] {
+  display: none;
+}
+
+.step-radio-ui {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.step-list {
+  position: relative;
+  width: 520px;
+  height: 290px;
+}
+
+.step-item {
+  position: absolute;
+  width: 195px;
+  height: 58px;
+  background: #e7e7e7;
+  border-radius: 999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #7a7a7a;
+  font-size: 28px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 16px 22px rgba(0, 0, 0, 0.42);
+  transition: color 0.25s ease;
+}
+
+.step-item1 {
+  left: 40px;
+  top: 0;
+}
+
+.step-item2 {
+  left: 138px;
+  top: 92px;
+}
+
+.step-item3 {
+  left: 235px;
+  top: 184px;
+}
+
+/* 右边的圆圈 */
+.step-circle {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #1c5960;
+  border: 2px solid #a8ffff;
+  left: 452px;
+  top: 189px;
+  transition: top 0.28s ease, left 0.28s ease;
+}
+
+/* 选中文字变蓝 */
+#step-option1:checked ~ .step-list .step-item1,
+#step-option2:checked ~ .step-list .step-item2,
+#step-option3:checked ~ .step-list .step-item3 {
+  color: #4d78a5;
+}
+
+/* 圆圈跟着移动 */
+#step-option1:checked ~ .step-list .step-circle {
+  left: 258px;
+  top: 5px;
+}
+
+#step-option2:checked ~ .step-list .step-circle {
+  left: 356px;
+  top: 97px;
+}
+
+#step-option3:checked ~ .step-list .step-circle {
+  left: 452px;
+  top: 189px;
+}
+
+
+/* 20 */
+.gothic-radio-ui input[type="radio"] {
+  display: none;
+}
+
+.gothic-radio-ui {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gothic-radio-group {
+  display: flex;
+  justify-content: center;
+  gap: 72px;
+}
+
+.gothic-item {
+  position: relative;
+  color: #7c7c7c;
+  font-size: 42px;
+  font-family: "UnifrakturCook", serif;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.25s ease;
+  padding-bottom: 26px;
+}
+
+.gothic-item::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 58px;
+  height: 3px;
+  background: #7c7c7c;
+  transform: translateX(-50%);
+  transition: background 0.25s ease;
+}
+
+/* 选中后文字和下划线变蓝 */
+#gothic-option1:checked ~ .gothic-radio-group label[for="gothic-option1"],
+#gothic-option2:checked ~ .gothic-radio-group label[for="gothic-option2"],
+#gothic-option3:checked ~ .gothic-radio-group label[for="gothic-option3"] {
+  color: #a9c8ff;
+}
+
+#gothic-option1:checked ~ .gothic-radio-group label[for="gothic-option1"]::after,
+#gothic-option2:checked ~ .gothic-radio-group label[for="gothic-option2"]::after,
+#gothic-option3:checked ~ .gothic-radio-group label[for="gothic-option3"]::after {
+  background: #a9c8ff;
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!--1-->
+    <div class="top-radio-wrapper">
+      <input type="radio" id="top-option1" name="top-menu">
+      <input type="radio" id="top-option2" name="top-menu" checked>
+      <input type="radio" id="top-option3" name="top-menu">
+
+      <div class="top-radio-group">
+        <div class="top-slider"></div>
+
+        <label for="top-option1" class="top-option">Option 1</label>
+        <div class="top-divider"></div>
+
+        <label for="top-option2" class="top-option">Option 2</label>
+        <div class="top-divider"></div>
+
+        <label for="top-option3" class="top-option">Option 3</label>
+      </div>
+    </div>
+
+    <!--2-->
+    <div class="bottom-radio-group">
+      <input type="radio" id="bottom-option1" name="bottom-menu" checked>
+      <label for="bottom-option1" class="bottom-option">
+        <span class="circle">○</span>
+        <span>OPTION 1</span>
+      </label>
+
+      <input type="radio" id="bottom-option2" name="bottom-menu">
+      <label for="bottom-option2" class="bottom-option">
+        <span class="circle">○</span>
+        <span>OPTION 2</span>
+      </label>
+
+      <input type="radio" id="bottom-option3" name="bottom-menu">
+      <label for="bottom-option3" class="bottom-option">
+        <span class="circle">○</span>
+        <span>OPTION 3</span>
+      </label>
+    </div>
+
+    <!--3-->
+    <div class="third-radio-group">
+  <input type="radio" id="third-option1" name="third-menu">
+  <label for="third-option1" class="third-option">
+    <span class="dot"></span>
+    <span>Option 1</span>
+  </label>
+
+  <input type="radio" id="third-option2" name="third-menu">
+  <label for="third-option2" class="third-option">
+    <span class="dot"></span>
+    <span>Option 2</span>
+  </label>
+
+  <input type="radio" id="third-option3" name="third-menu" checked>
+  <label for="third-option3" class="third-option">
+    <span class="dot"></span>
+    <span>Option 3</span>
+  </label>
+</div>
+
+<!--4-->
+<div class="dropdown-box">
+  <div class="dropdown-selected" id="dropdownSelected" onclick="toggleDropdown()">
+    Please select
+  </div>
+
+  <div class="dropdown-menu" id="dropdownMenu">
+    <div class="dropdown-item" onclick="selectOption('Option 1')">Option 1</div>
+    <div class="dropdown-item" onclick="selectOption('Option 2')">Option 2</div>
+    <div class="dropdown-item" onclick="selectOption('Option 3')">Option 3</div>
+  </div>
+</div>
+
+<!--5-->
+<div class="simple-tab-group">
+  <input type="radio" id="tab1" name="simple-tab" checked>
+  <label for="tab1" class="simple-tab">Option 1</label>
+
+  <input type="radio" id="tab2" name="simple-tab">
+  <label for="tab2" class="simple-tab">Option 2</label>
+
+  <input type="radio" id="tab3" name="simple-tab">
+  <label for="tab3" class="simple-tab">Option 3</label>
+</div>
+
+<!--6-->
+<div class="vertical-slider-box">
+  <input type="radio" id="v-option1" name="v-menu" checked>
+  <input type="radio" id="v-option2" name="v-menu">
+  <input type="radio" id="v-option3" name="v-menu">
+
+  <div class="vertical-panel">
+    <div class="vertical-highlight"></div>
+
+    <label for="v-option1" class="vertical-item">Option 1</label>
+    <label for="v-option2" class="vertical-item">Option 2</label>
+    <label for="v-option3" class="vertical-item">Option 3</label>
+  </div>
+</div>
+
+<!--7-->
+<div class="blob-menu">
+  <input type="radio" id="blob1" name="blob-menu">
+  <input type="radio" id="blob2" name="blob-menu" checked>
+  <input type="radio" id="blob3" name="blob-menu">
+
+  <div class="blob-card">
+    <div class="blob-shape"></div>
+
+    <label for="blob1" class="blob-option blob-option1">Option 1</label>
+    <label for="blob2" class="blob-option blob-option2">Option 2</label>
+    <label for="blob3" class="blob-option blob-option3">Option 3</label>
+  </div>
+</div>
+
+<!--8-->
+<div class="triangle-menu">
+  <input type="radio" id="tri-option1" name="tri-menu" checked>
+  <input type="radio" id="tri-option2" name="tri-menu">
+  <input type="radio" id="tri-option3" name="tri-menu">
+
+  <div class="triangle-card">
+    <label for="tri-option1" class="triangle-item triangle-item1">
+      <span class="triangle-icon"></span>
+      <span>Option 1</span>
+    </label>
+
+    <label for="tri-option2" class="triangle-item triangle-item2">
+      <span class="triangle-icon"></span>
+      <span>Option 2</span>
+    </label>
+
+    <label for="tri-option3" class="triangle-item triangle-item3">
+      <span class="triangle-icon"></span>
+      <span>Option 3</span>
+    </label>
+  </div>
+</div>
+
+
+<!--9-->
+<div class="loop-menu">
+    <input type="radio" id="loop1" name="loop-option" checked>
+    <input type="radio" id="loop2" name="loop-option">
+    <input type="radio" id="loop3" name="loop-option">
+
+    <div class="loop-bg">
+      <label for="loop1" class="loop-option option1">Option 1</label>
+      <label for="loop2" class="loop-option option2">Option 2</label>
+      <label for="loop3" class="loop-option option3">Option 3</label>
+  </div>
+</div>
+
+<!--10-->
+<div class="flash-ui">
+  <input type="radio" id="flash-option1" name="flash-menu">
+  <input type="radio" id="flash-option2" name="flash-menu" checked>
+  <input type="radio" id="flash-option3" name="flash-menu">
+
+  <div class="flash-scene">
+    <img src="flashlight.png" alt="flashlight" class="flashlight">
+
+    <div class="light-beam"></div>
+
+    <div class="flash-bar">
+      <label for="flash-option1" class="flash-item">Option 1</label>
+      <label for="flash-option2" class="flash-item">Option 2</label>
+      <label for="flash-option3" class="flash-item">Option 3</label>
+
+      <div class="flash-slider"></div>
+    </div>
+  </div>
+</div>
+
+<!--11-->
+<div class="drag-select-ui">
+  <div class="drag-options" id="dragOptions">
+    <div class="drag-option">Option 1</div>
+    <div class="drag-option">Option 2</div>
+    <div class="drag-option">Option 3</div>
+
+    <div class="sticky-note" id="stickyNote">
+    <div class="sticky-cover"></div>
+  <div class="sticky-move">move ↔</div>
+</div>
+</div>
+</div>
+
+<!--12-->
+<div class="dark-tab-ui">
+  <input type="radio" id="dark-tab1" name="dark-tab">
+  <input type="radio" id="dark-tab2" name="dark-tab" checked>
+  <input type="radio" id="dark-tab3" name="dark-tab">
+
+  <div class="dark-tab-bar">
+    <div class="dark-tab-slider"></div>
+
+    <label for="dark-tab1" class="dark-tab-option">option1</label>
+    <label for="dark-tab2" class="dark-tab-option">option2</label>
+    <label for="dark-tab3" class="dark-tab-option">option3</label>
+  </div>
+</div>
+
+<!--13-->
+<div class="piggy-ui">
+  <div class="piggy-box">
+    <img src="piggy.png" alt="piggy bank" class="piggy-img">
+
+    <div class="falling-coin" id="fallingCoin"></div>
+
+    <div class="coin-row">
+      <div class="coin-btn" onclick="dropCoin(this)">option1</div>
+      <div class="coin-btn" onclick="dropCoin(this)">option2</div>
+      <div class="coin-btn" onclick="dropCoin(this)">option3</div>
+    </div>
+  </div>
+</div>
+
+<!--14-->
+<div class="toilet-ui">
+  <img src="toilet-normal.png" alt="toilet paper 1" class="toilet-roll" id="roll1" onclick="selectRoll(1)">
+  <img src="toilet-normal.png" alt="toilet paper 2" class="toilet-roll center-roll" id="roll2" onclick="selectRoll(2)">
+  <img src="toilet-normal.png" alt="toilet paper 3" class="toilet-roll" id="roll3" onclick="selectRoll(3)">
+</div>
+
+<!--15-->
+<div class="player-ui">
+  <div class="player-handle"></div>
+
+  <div class="player-box">
+    <div class="player-top-buttons">
+      <button class="player-btn mode-btn active" onclick="selectMode(this)">1</button>
+      <button class="player-btn mode-btn" onclick="selectMode(this)">2</button>
+      <button class="player-btn mode-btn" onclick="selectMode(this)">3</button>
+    </div>
+
+    <div class="player-bottom">
+      <div class="player-screen"></div>
+      <button class="player-btn check-btn" onclick="pressCheck(this)">✓</button>
+    </div>
+  </div>
+</div>
+
+
+<!--16-->
+<div class="abc-radio-ui">
+  <input type="radio" id="abc-a" name="abc-choice">
+  <input type="radio" id="abc-b" name="abc-choice" checked>
+  <input type="radio" id="abc-c" name="abc-choice">
+
+  <div class="abc-radio-group">
+    <label for="abc-a" class="abc-radio-btn">
+      <span class="abc-top-line"></span>
+      <span class="abc-letter">A</span>
+    </label>
+
+    <label for="abc-b" class="abc-radio-btn">
+      <span class="abc-top-line"></span>
+      <span class="abc-letter">B</span>
+    </label>
+
+    <label for="abc-c" class="abc-radio-btn">
+      <span class="abc-top-line"></span>
+      <span class="abc-letter">C</span>
+    </label>
+  </div>
+</div>
+
+<!--17-->
+<div class="ipod-ui">
+  <input type="radio" name="ipod-option" id="ipod-1" checked>
+  <input type="radio" name="ipod-option" id="ipod-2">
+  <input type="radio" name="ipod-option" id="ipod-3">
+
+  <div class="ipod-body">
+    <div class="ipod-screen">
+      <span class="screen-text text-1">option1</span>
+      <span class="screen-text text-2">option2</span>
+      <span class="screen-text text-3">option3</span>
+    </div>
+
+    <div class="ipod-wheel">
+      <div class="wheel-center"></div>
+
+      <!-- 左按钮 -->
+      <label for="ipod-3" class="arrow left left-for-1"></label>
+      <label for="ipod-1" class="arrow left left-for-2"></label>
+      <label for="ipod-2" class="arrow left left-for-3"></label>
+
+      <!-- 右按钮 -->
+      <label for="ipod-2" class="arrow right right-for-1"></label>
+      <label for="ipod-3" class="arrow right right-for-2"></label>
+      <label for="ipod-1" class="arrow right right-for-3"></label>
+    </div>
+  </div>
+</div>
+
+
+<!--18-->
+<div class="menu-remote-ui">
+  <input type="radio" name="menu-remote-option" id="menu-remote-1">
+  <input type="radio" name="menu-remote-option" id="menu-remote-2" checked>
+  <input type="radio" name="menu-remote-option" id="menu-remote-3">
+
+  <div class="menu-remote-body">
+    <div class="menu-remote-screen">
+      <div class="menu-remote-highlight menu-remote-highlight-1"></div>
+      <div class="menu-remote-highlight menu-remote-highlight-2"></div>
+      <div class="menu-remote-highlight menu-remote-highlight-3"></div>
+
+      <div class="menu-remote-line menu-remote-line-1">option1</div>
+      <div class="menu-remote-line menu-remote-line-2">option2</div>
+      <div class="menu-remote-line menu-remote-line-3">option3</div>
+    </div>
+
+    <div class="menu-remote-controls">
+      <div class="menu-remote-pad">
+        <label for="menu-remote-3" class="menu-remote-pad-btn menu-remote-up menu-remote-up-for-1">▲</label>
+        <label for="menu-remote-1" class="menu-remote-pad-btn menu-remote-up menu-remote-up-for-2">▲</label>
+        <label for="menu-remote-2" class="menu-remote-pad-btn menu-remote-up menu-remote-up-for-3">▲</label>
+
+        <div class="menu-remote-pad-btn menu-remote-left">◀</div>
+        <div class="menu-remote-pad-btn menu-remote-center"></div>
+        <div class="menu-remote-pad-btn menu-remote-right">▶</div>
+
+        <label for="menu-remote-2" class="menu-remote-pad-btn menu-remote-down menu-remote-down-for-1">▼</label>
+        <label for="menu-remote-3" class="menu-remote-pad-btn menu-remote-down menu-remote-down-for-2">▼</label>
+        <label for="menu-remote-1" class="menu-remote-pad-btn menu-remote-down menu-remote-down-for-3">▼</label>
+      </div>
+
+      <button class="menu-remote-enter-btn">↵</button>
+    </div>
+  </div>
+</div>
+
+
+<!--19-->
+<div class="step-radio-ui">
+  <input type="radio" id="step-option1" name="step-option">
+  <input type="radio" id="step-option2" name="step-option">
+  <input type="radio" id="step-option3" name="step-option" checked>
+
+  <div class="step-list">
+    <label for="step-option1" class="step-item step-item1">Option 1</label>
+    <label for="step-option2" class="step-item step-item2">Option 2</label>
+    <label for="step-option3" class="step-item step-item3">Option 3</label>
+
+    <div class="step-circle"></div>
+  </div>
+</div>
+
+<!--20-->
+<div class="gothic-radio-ui">
+  <input type="radio" id="gothic-option1" name="gothic-option">
+  <input type="radio" id="gothic-option2" name="gothic-option">
+  <input type="radio" id="gothic-option3" name="gothic-option" checked>
+
+  <div class="gothic-radio-group">
+    <label for="gothic-option1" class="gothic-item">Option 1</label>
+    <label for="gothic-option2" class="gothic-item">Option 2</label>
+    <label for="gothic-option3" class="gothic-item">Option 3</label>
+  </div>
+</div>
+
+</div>
+
+<script>
+  function toggleDropdown() {
+    document.getElementById("dropdownMenu").classList.toggle("show");
+  }
+
+  function selectOption(optionText) {
+    document.getElementById("dropdownSelected").textContent = optionText;
+    document.getElementById("dropdownMenu").classList.remove("show");
+  }
+
+  document.addEventListener("click", function (event) {
+    const box = document.querySelector(".dropdown-box");
+    if (!box.contains(event.target)) {
+      document.getElementById("dropdownMenu").classList.remove("show");
+    }
+  });
+</script>
+
+<script>
+  const stickyNote = document.getElementById("stickyNote");
+  const optionElements = document.querySelectorAll(".drag-option");
+
+  const snapPositions = [37, 247, 450];
+  const maxLeft = 412;
+
+  let isDragging = false;
+  let startX = 0;
+  let startLeft = 0;
+
+  function setActiveOption(index) {
+    optionElements.forEach((option, i) => {
+      option.classList.toggle("active", i === index);
+    });
+  }
+
+  function getNearestIndex(leftValue) {
+    let nearestIndex = 0;
+    let minDistance = Math.abs(leftValue - snapPositions[0]);
+
+    for (let i = 1; i < snapPositions.length; i++) {
+      const distance = Math.abs(leftValue - snapPositions[i]);
+      if (distance < minDistance) {
+        minDistance = distance;
+        nearestIndex = i;
+      }
+    }
+
+    return nearestIndex;
+  }
+
+  stickyNote.addEventListener("mousedown", function (event) {
+    isDragging = true;
+    startX = event.clientX;
+    startLeft = stickyNote.offsetLeft;
+    stickyNote.style.transition = "none";
+  });
+
+  document.addEventListener("mousemove", function (event) {
+    if (!isDragging) return;
+
+    const moveX = event.clientX - startX;
+    let newLeft = startLeft + moveX;
+
+    if (newLeft < 0) newLeft = 0;
+    if (newLeft > maxLeft) newLeft = maxLeft;
+
+    stickyNote.style.left = newLeft + "px";
+
+    const nearestIndex = getNearestIndex(newLeft);
+    setActiveOption(nearestIndex);
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!isDragging) return;
+
+    isDragging = false;
+    stickyNote.style.transition = "left 0.2s ease";
+
+    const currentLeft = stickyNote.offsetLeft;
+    const nearestIndex = getNearestIndex(currentLeft);
+
+    stickyNote.style.left = snapPositions[nearestIndex] + "px";
+    setActiveOption(nearestIndex);
+  });
+
+  setActiveOption(1);
+</script>
+
+<script>
+  function dropCoin(clickedCoin) {
+    const fallingCoin = document.getElementById("fallingCoin");
+
+    clickedCoin.classList.add("hide");
+
+    fallingCoin.classList.remove("animate");
+    void fallingCoin.offsetWidth; 
+    fallingCoin.classList.add("animate");
+
+    setTimeout(function () {
+      clickedCoin.classList.remove("hide");
+    }, 700);
+  }
+</script>
+
+
+<script>
+  function selectRoll(number) {
+    const roll1 = document.getElementById("roll1");
+    const roll2 = document.getElementById("roll2");
+    const roll3 = document.getElementById("roll3");
+
+    roll1.src = "toilet-normal.png";
+    roll2.src = "toilet-normal.png";
+    roll3.src = "toilet-normal.png";
+
+    roll1.classList.remove("selected");
+    roll2.classList.remove("selected");
+    roll3.classList.remove("selected");
+
+    const selectedRoll = document.getElementById("roll" + number);
+    selectedRoll.src = "toilet-long.png";
+    selectedRoll.classList.add("selected");
+  }
+</script>
+
+<script>
+  function selectMode(clickedButton) {
+    const allModeButtons = document.querySelectorAll(".mode-btn");
+
+    allModeButtons.forEach(function(button) {
+      button.classList.remove("active");
+    });
+
+    clickedButton.classList.add("active");
+  }
+
+  function pressCheck(checkButton) {
+    checkButton.classList.add("pressed");
+
+    setTimeout(function() {
+      checkButton.classList.remove("pressed");
+    }, 120);
+  }
+</script>
+
+</body>
+</html>
